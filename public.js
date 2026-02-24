@@ -6,6 +6,12 @@ canalSorteo.onmessage = (event) => {
     const { action, data } = event.data;
     if (action === 'SETUP_INICIAL') document.getElementById('showContainer').classList.remove('hidden');
     if (action === 'REVELAR_GANADOR') ejecutarRevelacion(data);
+    if (action === 'REINICIAR_SORTEO') {
+        document.getElementById('showContainer').classList.add('hidden');
+        document.getElementById('winnerCard').classList.add('hidden');
+        document.getElementById('leaderboard').innerHTML = '';
+        document.getElementById('leaderboard').classList.add('hidden');
+    }
 };
 
 function ejecutarRevelacion(ganador) {

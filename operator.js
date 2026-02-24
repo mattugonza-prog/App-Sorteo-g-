@@ -143,5 +143,30 @@ function abrirPantallaPublico() {
     window.open('public.html', 'PantallaPublico', 'width=1280,height=720,menubar=no,toolbar=no,location=no');
     setTimeout(() => { if(ganadores.length > 0) canalSorteo.postMessage({ action: 'SETUP_INICIAL', total: ganadores.length }); }, 1000);
 }
+// --- 7. REINICIAR SISTEMA ---
+document.getElementById('btnReiniciar').addEventListener('click', () => {
+    if(confirm('¿Seguro que deseas borrar el sorteo actual y empezar uno nuevo?')) {
+        // Limpiar memoria
+        localStorage.removeItem('sorteoProData');
+        participantes = []; premios = []; ganadores = []; revelados = [];
+        
+        // Restaurar botones y textos
+        document.getElementById('broadcastStatus').classList.replace('online', 'offline');
+        document.getElementById('statusText').innerText = "Configurando";
+        document.getElementById('inputExcel').disabled = false;
+        document.getElementById('inputExcel').value = '';
+        document.getElementById('fileStatus').innerText = "Sin archivo...";
+        numGanadoresInput.disabled = false;
+        btnPreparar.disabled = true;
+        btnRevelar.disabled = true;
+        document.getElementById('btnExportar').disabled = true;
+        
+        // Limpiar monitor
+        document.getElementById('operatorWinnersBoard').innerHTML = '<div class="empty-state">Esperando sorteo...</div>';
+        
+        // Avisar a la pantalla pública
+        canalSorteo.postMessage({ action: 'REINICIAR_SORTEO' });
+    }
+});
 
 restaurarEstado();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorteo - EN VIVO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-public.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="public-theme">
+    <audio id="audioDrum" src="assets/redoble.mp3" preload="auto"></audio>
+    <audio id="audioWin" src="assets/ganador.mp3" preload="auto"></audio>
+
+    <div id="showContainer" class="show-container hidden">
+        <div id="winnerCard" class="glass-card hidden">
+            <div class="position-tag" id="positionDisplay">#1</div>
+            <div class="prize-tag" id="prizeDisplay">Premio</div>
+            <h1 id="nameDisplay" class="winner-name">???</h1>
+        </div>
+        <div id="leaderboard" class="leaderboard hidden"></div>
+    </div>
+    <script src="public.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+body.public-theme {
+    margin: 0; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background-image: radial-gradient(circle at center, #1e293b 0%, #0f111a 100%); color: white;
+}
+.hidden { display: none !important; }
+.show-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; position: relative; }
+.glass-card {
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+#winnerCard { text-align: center; padding: 60px 100px; transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.reveal-anim { transform: scale(1) !important; box-shadow: 0 0 80px rgba(16, 185, 129, 0.3); border-color: rgba(16, 185, 129, 0.5); }
+.position-tag { font-size: 2rem; color: #10b981; font-weight: 800; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
+.prize-tag { font-size: 1.5rem; color: #94a3b8; margin-bottom: 20px; }
+.winner-name {
+    font-family: 'Montserrat', sans-serif; font-size: 6rem; margin: 0;
+    background: linear-gradient(to right, #ffffff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase;
+}
+.leaderboard { position: absolute; bottom: 40px; left: 40px; display: flex; flex-direction: column-reverse; gap: 15px; }
+.leaderboard-item { padding: 15px 30px; font-size: 1.3rem; font-weight: 600; display: flex; gap: 20px; animation: slideIn 0.5s ease forwards; }
+.prize-mini { color: #10b981; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
